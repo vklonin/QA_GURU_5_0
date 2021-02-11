@@ -6,14 +6,18 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class GithubCheckingIssueName {
+    String REPOSITORY = "vklonin/QA_GURU_2_0";
+    String ISSUE_NAME = "Just to check if it exists";
 
     @Test
     public void webInterfaceCheck(){
-        open("https://github.com/vklonin");
-        $(by("title", "QA_GURU_2_0")).click();
+        open("https://github.com/");
+        $(byAttribute("name", "q")).sendKeys(REPOSITORY);
+        $(byAttribute("name", "q")).pressEnter();
+        $(byAttribute("href", "/"+REPOSITORY)).click();
         $(by("data-hotkey", "g i")).click();
-        $("#issue_1_link").shouldHave(Condition.text("Just to check if it exists"));
-        sleep(3000);
+        $(withText(ISSUE_NAME)).should(Condition.exist);
+        //sleep(3000);
     }
 
 }
