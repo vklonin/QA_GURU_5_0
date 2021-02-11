@@ -17,7 +17,6 @@ public class GithubCheckingIssueName {
         $(byAttribute("href", "/"+REPOSITORY)).click();
         $(by("data-hotkey", "g i")).click();
         $(withText(ISSUE_NAME)).should(Condition.exist);
-        //sleep(3000);
     }
 
 }
