@@ -1,19 +1,30 @@
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.parameter;
 import static io.qameta.allure.Allure.step;
-
 public class GithubCheckingIssueNameLambda {
-    String REPOSITORY = "vklonin/QA_GURU_2_0";
-    String ISSUE_NAME = "Just to check if it exists";
+private static final String REPOSITORY = "vklonin/QA_GURU_2_0";
+private static final String ISSUE_NAME = "Just to check if it exists";
+private static final String BASE_URL = "https://github.com/";
 
     @Test
-    public void webInterfaceCheck(){
+    @DisplayName("Поиск issue по имени")
+    @Owner("kloninvv")
+    @Tags({@Tag("crirical"), @Tag("web")})
+    @Link(BASE_URL)
 
-        step("Open a main page" , () -> open("https://github.com/"));
+    public void webInterfaceCheck(){
+        parameter("Repository", REPOSITORY);
+        parameter("Issue name", ISSUE_NAME);
+
+        step("Open a main page" , () -> open(BASE_URL));
         step("Look up for repository" , () -> {
             $(byAttribute("name", "q")).sendKeys(REPOSITORY);
             $(byAttribute("name", "q")).pressEnter();
@@ -23,7 +34,5 @@ public class GithubCheckingIssueNameLambda {
         step("Check if issue with certain name exist", () -> {
             $(withText(ISSUE_NAME)).should(Condition.exist);
         });
-
     }
-
 }
