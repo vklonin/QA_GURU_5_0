@@ -20,7 +20,7 @@ public class BaseSteps {
     }
     @Step("Going to the issue tab")
     public void goingToTheIssueTab(){
-        $(by("data-hotkey", "g i")).click();
+        $(byText("Issues")).click();
     }
     @Step("Checking issue name")
     public void chekingIssueName(final String issueName){

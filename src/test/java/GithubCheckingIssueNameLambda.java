@@ -30,7 +30,7 @@ private static final String BASE_URL = "https://github.com/";
             $(byName("q")).setValue(REPOSITORY).pressEnter();
         });
         step("Going in to a found repository", () -> $(byAttribute("href", "/"+REPOSITORY)).click());
-        step("Going in to issues tab", () -> $(by("data-hotkey", "g i")).click());
+        step("Going in to issues tab", () -> $(byText("Issues")).click());
         step("Check if issue with certain name exist", () -> {
             $(withText(ISSUE_NAME)).should(visible);
         });

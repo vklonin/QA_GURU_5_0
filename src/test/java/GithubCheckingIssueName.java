@@ -11,7 +11,8 @@ public class GithubCheckingIssueName {
         open("https://github.com/");
         $(byName("q")).setValue(REPOSITORY).pressEnter();
         $(byAttribute("href", "/"+REPOSITORY)).click();
-        $(by("data-hotkey", "g i")).click();
+        //$(by("data-hotkey", "g i")).click();
+        $(byText("Issues")).click();
         $(withText(ISSUE_NAME)).should(visible);
     }
 }
