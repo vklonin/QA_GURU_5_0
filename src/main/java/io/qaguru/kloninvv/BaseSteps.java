@@ -1,4 +1,5 @@
 package io.qaguru.kloninvv;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.Condition;
@@ -23,6 +24,6 @@ public class BaseSteps {
     }
     @Step("Checking issue name")
     public void chekingIssueName(final String issueName){
-        $(withText(issueName)).should(Condition.exist);
+        $(withText(issueName)).should(visible);
     }
 }

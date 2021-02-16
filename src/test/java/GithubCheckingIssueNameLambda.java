@@ -1,10 +1,11 @@
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.parameter;
@@ -31,7 +32,7 @@ private static final String BASE_URL = "https://github.com/";
         step("Going in to a found repository", () -> $(byAttribute("href", "/"+REPOSITORY)).click());
         step("Going in to issues tab", () -> $(by("data-hotkey", "g i")).click());
         step("Check if issue with certain name exist", () -> {
-            $(withText(ISSUE_NAME)).should(Condition.exist);
+            $(withText(ISSUE_NAME)).should(visible);
         });
     }
 }

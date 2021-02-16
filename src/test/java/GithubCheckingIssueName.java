@@ -1,4 +1,4 @@
-import com.codeborne.selenide.Condition;
+import static com.codeborne.selenide.Condition.*;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -12,11 +12,9 @@ public class GithubCheckingIssueName {
         $(byName("q")).setValue(REPOSITORY).pressEnter();
         $(byAttribute("href", "/"+REPOSITORY)).click();
         $(by("data-hotkey", "g i")).click();
-        $(withText(ISSUE_NAME)).should(Condition.exist);
+        $(withText(ISSUE_NAME)).should(visible);
     }
 }
 
 
-//1. Зависимости нужно привести к одному виду. Либо с ( ' либо с '
 //        3. $(by("data-hotkey", "g i")) может лучше по тексту искать?
-//        4. Вместо Condition.exist лучше использовать visible (Condition можно статически импортнуть)
