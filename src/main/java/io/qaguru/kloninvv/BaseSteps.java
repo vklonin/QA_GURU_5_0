@@ -11,8 +11,7 @@ public class BaseSteps {
     }
     @Step("Look up for repository")
     public void lookForRepository(final String repository){
-        $(byAttribute("name", "q")).sendKeys(repository);
-        $(byAttribute("name", "q")).pressEnter();
+        $(byName("q")).setValue(repository).pressEnter();
     }
     @Step("Going in to the found repository")
     public void goingInToFoundRepository(final String repository){

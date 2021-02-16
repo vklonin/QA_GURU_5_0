@@ -9,10 +9,14 @@ public class GithubCheckingIssueName {
     @Test
     public void webInterfaceCheck(){
         open("https://github.com/");
-        $(byAttribute("name", "q")).sendKeys(REPOSITORY);
-        $(byAttribute("name", "q")).pressEnter();
+        $(byName("q")).setValue(REPOSITORY).pressEnter();
         $(byAttribute("href", "/"+REPOSITORY)).click();
         $(by("data-hotkey", "g i")).click();
         $(withText(ISSUE_NAME)).should(Condition.exist);
     }
 }
+
+
+//1. Зависимости нужно привести к одному виду. Либо с ( ' либо с '
+//        3. $(by("data-hotkey", "g i")) может лучше по тексту искать?
+//        4. Вместо Condition.exist лучше использовать visible (Condition можно статически импортнуть)

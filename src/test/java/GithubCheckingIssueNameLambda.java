@@ -26,8 +26,7 @@ private static final String BASE_URL = "https://github.com/";
 
         step("Open a main page" , () -> open(BASE_URL));
         step("Look up for repository" , () -> {
-            $(byAttribute("name", "q")).sendKeys(REPOSITORY);
-            $(byAttribute("name", "q")).pressEnter();
+            $(byName("q")).setValue(REPOSITORY).pressEnter();
         });
         step("Going in to a found repository", () -> $(byAttribute("href", "/"+REPOSITORY)).click());
         step("Going in to issues tab", () -> $(by("data-hotkey", "g i")).click());
