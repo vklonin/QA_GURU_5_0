@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -24,7 +23,6 @@ private static final String BASE_URL = "https://github.com/";
     public void webInterfaceCheck(){
         parameter("Repository", REPOSITORY);
         parameter("Issue name", ISSUE_NAME);
-
         step("Open a main page" , () -> open(BASE_URL));
         step("Look up for repository" , () -> {
             $(byName("q")).setValue(REPOSITORY).pressEnter();

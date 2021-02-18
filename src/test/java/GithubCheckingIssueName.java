@@ -16,6 +16,3 @@ public class GithubCheckingIssueName {
         $(withText(ISSUE_NAME)).should(visible);
     }
 }
-
-
-//        3. $(by("data-hotkey", "g i")) может лучше по тексту искать?
